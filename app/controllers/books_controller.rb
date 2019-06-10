@@ -5,11 +5,10 @@ class BooksController < ApplicationController
 
    def create
 
-   	book = Book.new(post_params)
+   	book = Book.new(book_params)
+    book.save
+    redirect_to '/top'
 
-   	book.save
-
-   	redirect_to '/top'
    end
 
    def index
@@ -17,13 +16,25 @@ class BooksController < ApplicationController
    end
 
    def show
-    @post = Book.find(params[:id])
+    @book = Book.find(params[:id])
    end
+   
+   def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to post_path(book.id)
+
+
+  end
 
  private
 
-   def post_params
+   def book_params
    	   params.require(:book).permit(:title, :body)
    end
 
-end
+ end

@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   get'books/:id' => 'books#show', as: 'post'
 
+  get'books/:id/edit' => 'books#edit', as: 'edit_book'
+
+  patch 'books/:id' => 'books#update', as: 'update_book'
+
 end
 
