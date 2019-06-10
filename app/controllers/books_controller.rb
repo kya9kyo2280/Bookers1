@@ -12,6 +12,14 @@ class BooksController < ApplicationController
    	redirect_to '/top'
    end
 
+   def index
+     @books = Book.all
+   end
+
+   def show
+    @post = Book.find(params[:id])
+   end
+
  private
 
    def post_params
