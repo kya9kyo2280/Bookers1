@@ -8,15 +8,17 @@ Rails.application.routes.draw do
 
   get'books' => 'books#index'
 
-  get'books/:id' => 'books#show', as: 'post'
+  get'books/:id' => 'books#show', as: 'book'
 
   get'books/:id/edit' => 'books#edit', as: 'edit_book'
 
   patch 'books/:id' => 'books#update', as: 'update_book'
 
-  delete'book/:id' => 'books#destroy', as: 'destroy_book'
+  delete'books/:id' => 'books#destroy', as: 'destroy_book'
 
   root to: 'home#index'
+
+  # resourses :books
 
 end
 
